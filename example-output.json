@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "1.0",
+  "bankId": "changshi_demo",
+  "name": "常识判断·示例转换卷",
+  "subject": "常识判断",
+  "source": "某公考常识专项讲义（扫描件）——对应 example-raw-input.md",
+  "description": "题库预处理 Skill 端到端示例：由乱序编号、跨章节重复、粘连选项、OCR 噪声、含图题的原始文本转换而来。原文 10 条，去重 1 条，最终 9 题。",
+  "createdAt": "2026-09-01",
+  "questionCount": 9,
+  "groups": [
+    {
+      "id": "changshi_demo-g001",
+      "name": "生物常识",
+      "chapter": "二、生物与生活",
+      "questionCount": 3
+    },
+    {
+      "id": "changshi_demo-g002",
+      "name": "物理常识（声与光）",
+      "chapter": "一、物理常识",
+      "questionCount": 3
+    },
+    {
+      "id": "changshi_demo-g003",
+      "name": "能源与环境",
+      "chapter": "能源专题（原文重复条目所在章节）",
+      "questionCount": 1
+    },
+    {
+      "id": "changshi_demo-g004",
+      "name": "化学常识",
+      "chapter": "四、化学常识",
+      "questionCount": 1
+    },
+    {
+      "id": "changshi_demo-g005",
+      "name": "生活用电与安全",
+      "chapter": "第4页 含图题",
+      "questionCount": 1
+    }
+  ],
+  "questions": [
+    {
+      "id": "changshi_demo-q0001",
+      "type": "single",
+      "groupId": "changshi_demo-g001",
+      "stem": "人体缺乏维生素A易患：",
+      "options": [
+        "夜盲症",
+        "坏血病",
+        "脚气病",
+        "佝偻病"
+      ],
+      "answer": "A",
+      "analysis": "缺乏维生素A影响视紫红质合成，暗适应能力下降，易患夜盲症；坏血病源于缺乏维生素C；脚气病源于缺乏维生素B1；佝偻病多因缺乏维生素D影响钙吸收。",
+      "difficulty": 2,
+      "tags": [
+        "生物",
+        "维生素",
+        "高频"
+      ],
+      "source": "原文第6条（解析由AI补齐）"
+    },
+    {
+      "id": "changshi_demo-q0002",
+      "type": "multiple",
+      "groupId": "changshi_demo-g001",
+      "stem": "下列属于无脊椎动物的有：",
+      "options": [
+        "蚯蚓",
+        "蜜蜂",
+        "鲫鱼",
+        "蜗牛"
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "analysis": "蚯蚓属环节动物、蜜蜂属节肢动物、蜗牛属软体动物，均无脊椎骨构成的脊柱；鲫鱼属鱼类，是脊椎动物，故不选C。",
+      "difficulty": 3,
+      "tags": [
+        "生物",
+        "动物分类",
+        "多选"
+      ],
+      "source": "原文第5条"
+    },
+    {
+      "id": "changshi_demo-q0003",
+      "type": "essay",
+      "groupId": "changshi_demo-g001",
+      "stem": "简答：简述光合作用的概念。",
+      "answer": "绿色植物通过叶绿体，利用光能，把二氧化碳和水转化成储存能量的有机物（主要是淀粉），并且释放出氧气的过程；本质是把光能转化为化学能，储存在有机物中。",
+      "analysis": "评分要点：①场所与条件——叶绿体、光能；②原料——二氧化碳和水；③产物——有机物（淀粉）与氧气；④本质——光能转化为化学能。v1 由用户对照参考答案自评。",
+      "difficulty": 3,
+      "tags": [
+        "生物",
+        "光合作用",
+        "简答自评"
+      ],
+      "source": "原文第9条（参考答案由AI补齐）"
+    },
+    {
+      "id": "changshi_demo-q0004",
+      "type": "judge",
+      "groupId": "changshi_demo-g002",
+      "stem": "声音不能在真空中传播。",
+      "answer": true,
+      "analysis": "声音的传播需要介质，真空没有可传声的介质，故声音不能在真空中传播；电磁波（如光）可以在真空中传播，注意区分。",
+      "difficulty": 1,
+      "tags": [
+        "物理",
+        "声现象",
+        "易错"
+      ],
+      "source": "原文第1条（原文答案标记：√，归一为 true）"
+    },
+    {
+      "id": "changshi_demo-q0005",
+      "type": "fill",
+      "groupId": "changshi_demo-g002",
+      "stem": "光在真空中传播的速度约为每秒____千米。",
+      "answer": [
+        "30万",
+        "300000",
+        "3×10^5",
+        "三十万"
+      ],
+      "analysis": "光在真空中的传播速度约为3×10^8米/秒，即30万千米/秒（300000千米/秒）。填空判分：答案去空格后与任一候选精确匹配。",
+      "difficulty": 2,
+      "tags": [
+        "物理",
+        "光现象"
+      ],
+      "source": "原文第2条（答案补写常用变体）"
+    },
+    {
+      "id": "changshi_demo-q0006",
+      "type": "single",
+      "groupId": "changshi_demo-g003",
+      "stem": "下列属于可再生能源的是：",
+      "options": [
+        "煤炭",
+        "石油",
+        "风能",
+        "天然气"
+      ],
+      "answer": "C",
+      "analysis": "风能可从自然界持续再生，属可再生能源；煤炭、石油、天然气均为千百万年埋藏于地下的化石能源，短期内无法再生，属不可再生能源。",
+      "difficulty": 1,
+      "tags": [
+        "能源",
+        "环保"
+      ],
+      "source": "原文第3条（原文跨章节重复收录1条，已去重合并）"
+    },
+    {
+      "id": "changshi_demo-q0007",
+      "type": "single",
+      "groupId": "changshi_demo-g004",
+      "stem": "水通电分解，生成的气体是：",
+      "options": [
+        "氢气和氧气",
+        "氢气和二氧化碳",
+        "氧气和氮气",
+        "氢气和氮气"
+      ],
+      "answer": "A",
+      "analysis": "电解水生成氢气和氧气，体积比约为2:1（正极氧气、负极氢气），证明水由氢、氧两种元素组成；空气中约78%是氮气，但电解水不产生氮气。",
+      "difficulty": 2,
+      "tags": [
+        "化学",
+        "电解水"
+      ],
+      "source": "原文第7条（原文解析为占位符，已由AI补齐）"
+    },
+    {
+      "id": "changshi_demo-q0008",
+      "type": "single",
+      "groupId": "changshi_demo-g005",
+      "stem": "如图所示（见图），三孔插座正面朝上安装时，接地保护线的插孔是：",
+      "options": [
+        "上孔",
+        "左孔",
+        "右孔",
+        "任意孔"
+      ],
+      "answer": "A",
+      "analysis": "三孔插座接线规则为\"左零右火上接地\"：上孔接地保护线，用电器金属外壳漏电时电流经地线导入大地，防止触电；左孔接零线，右孔接火线。",
+      "difficulty": 2,
+      "tags": [
+        "用电安全",
+        "图片题"
+      ],
+      "source": "原文第8条（含图题）",
+      "image": {
+        "ref": "img_changshi_demo_q0008.png",
+        "required": false,
+        "caption": "三孔插座正面示意图",
+        "transcribed": "三孔插座正面示意图：上孔标\"地\"，左孔标\"零\"，右孔标\"火\"。",
+        "fallbackText": "缺图时依据转写文字作答：上孔为地线插孔。"
+      }
+    },
+    {
+      "id": "changshi_demo-q0009",
+      "type": "single",
+      "groupId": "changshi_demo-g002",
+      "stem": "可见光中波长最短的是：",
+      "options": [
+        "红光",
+        "紫光",
+        "绿光",
+        "黄光"
+      ],
+      "answer": "B",
+      "analysis": "可见光按波长从长到短依次为红、橙、黄、绿、蓝、靛、紫，紫光波长最短、频率最高；彩虹从外到内即按此顺序排列。",
+      "difficulty": 2,
+      "tags": [
+        "物理",
+        "光的色散"
+      ],
+      "source": "原文第10条（粘连选项已拆分并剥离字母前缀）"
+    }
+  ]
+}

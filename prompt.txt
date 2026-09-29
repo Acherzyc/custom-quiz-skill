@@ -13,7 +13,7 @@
 3. 每批按题目边界约 8–15 页或 30–50 题，保存已完成页/题号清单以便续跑
 4. 双栏先左后右
 5. 模糊字以视觉为准，禁止猜；看不清用〔?〕标注
-6. 不凑数：识别不清标记"待确认"也不瞎编
+6. 不凑数：识别不清宁可标记"待确认"也不瞎编；但"待确认"只能进交付报告的待确认清单，禁止写进 answer 等 JSON 字段
 
 【⚠️ 跨页续文判定——最容易出错】
 每道题在原书中都以数字题号开头（如"3."、"15.【2025国考】"）。
@@ -56,6 +56,7 @@
 2. 你转录的题数必须 = N
 3. 不等 = 有续文误拆或漏题，回查
 4. 逐题按顺序比对 answer 与答案序列
+5. 资料中没有答案时：该题不要写进 questions（answer:"待确认" 会被校验器拦截导致整卷导入失败），列入交付报告的待确认清单，等用户补答案后单独成批补交
 
 【分批输出协议】
 每批约 8-15 页或 30-50 题，按题目边界输出纯 JSON 片段：{"batch":3,"total":12,"pages":"p011-p018","questions":[…]}
@@ -66,5 +67,10 @@ d = json.load(open(f"{bankId}.json", encoding="utf-8"))
 assert "name" in d and "subject" in d and "source" in d and "createdAt" in d
 assert d["questionCount"] == len(d["questions"])
 for q in d["questions"]:
-    assert q["options"], f"空选项: {q['id']}"
+    # 类型感知：只有 single/multiple 才有 options；judge/fill/essay 禁止带 options
+    if q["type"] in ("single", "multiple"):
+        assert q.get("options") and 2 <= len(q["options"]) <= 10, f"选项异常: {q['id']}"
+    else:
+        assert "options" not in q, f"{q['type']} 不应有 options: {q['id']}"
+    assert q.get("analysis"), f"缺解析: {q['id']}"
     assert "（接上题）" not in q["stem"], f"未处理续文: {q['id']}"
